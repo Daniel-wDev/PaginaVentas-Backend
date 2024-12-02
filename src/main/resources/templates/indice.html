@@ -1,0 +1,51 @@
+<!DOCTsolo tYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDICE INICIAL</title>
+</head>
+<body>
+    <p th:text="${hola}"></p>    
+    <br/><!-- comment -->
+    
+
+    <div th:if="${lista != null and !lista.isEmpty()}">
+        <table border="2">
+            
+            <tr>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Edad</th>
+                                
+            </tr>
+            <tr th:each="individuo :${lista}">
+           
+                <td th:text="${individuo.nombre}"></td>
+                <td th:text="${individuo.telefono}"></td>
+                <td th:text="${individuo.correo}"></td>
+                <td th:text="${individuo.edad}"></td>
+
+                                
+            </tr>
+        </table>
+        
+    </div>
+    <div th:if="${lista == null or lista.isEmpty()}">
+        LA LISTA NO TIENE INFORMACION
+    </div>
+        Nombre:<span th:text="${individuo.nombre}"></span>
+
+    <!-- comment 
+    
+      <br>
+    Correo<span th:text="${individuo.correo}"></span>
+      <br>
+    Telefono<span th:text="${individuo.telefono}"></span>
+      <br>
+    Edad<span th:text="${individuo.edad}"></span>
+    -->
+    
+</body>
+</html>
